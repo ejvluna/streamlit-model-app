@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd
 from sklearn.model_selection import cross_val_score, train_test_split, KFold
 from sklearn.naive_bayes import GaussianNB
