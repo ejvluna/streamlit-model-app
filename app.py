@@ -1,9 +1,17 @@
 import streamlit as st
 import pandas as pd
 from model_functions import train_and_evaluate_gnb, train_and_evaluate_knn
+import requests
 
-# Load your dataset
-df = pd.read_excel(r"C:\Users\Admin\OneDrive\Massey University\Semester 3\Data Wrangling & Machine Learning\Assignments\A3\Sample.xlsx")
+# Get the raw content URL for the Excel file in your GitHub repository
+file_url = "https://raw.githubusercontent.com/ejvluna/streamlit-model-app/main/TB_Burden_Country.xlsx"
+
+# Load the Excel data from the URL
+response = requests.get(file_url)
+with open("TB_Burden_Country.xlsx", "wb") as f: 
+    f.write(response.content)
+
+df = pd.read_excel("TB_Burden_Country.xlsx") 
 
 st.title('Interactive Model Training')
 
