@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from model_functions import train_and_evaluate_gnb, train_and_evaluate_knn
 import requests
+import openpyxl
 
 # Get the raw content URL for the Excel file in your GitHub repository
 file_url = "https://raw.githubusercontent.com/ejvluna/streamlit-model-app/main/TB_Burden_Country.xlsx"
