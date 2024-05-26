@@ -144,7 +144,7 @@ st.markdown("---")
 # Create a container to hold the title
 with st.container():
     # Display the title for the model and feature comparison section
-    st.title("Model and Feature Comparison")
+    st.title("Model Comparison")
 
 # When at least two models are created, display the 'Compare Models' button
 if len(model_results) > 1:
@@ -157,6 +157,13 @@ else:
     # Display error message if less than two models are run and "Compare Models" button is clicked
     st.write("Create at least 2 models to proceed with model comparison.")
 
+# Add spacing for visual separation between sections
+st.markdown("---")  
+# Create a container to hold the title
+with st.container():
+    # Display the title for the model and feature comparison section
+    st.title("Feature Comparison")
+    
 # When at least two features are evaluated, display the 'Compare Features' button
 if len(feature_model_results) > 1:
     st.write("Click to compare the features evaluated so far.")
