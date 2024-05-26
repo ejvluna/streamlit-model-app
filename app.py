@@ -168,10 +168,3 @@ if len(feature_model_results) > 1:
 else:
     # Display error message if less than two models are run and "Compare Models" button is clicked
     st.write("Evaluate at least 2 features to proceed with feature comparison.")
-
-
-
-
-
-else:
-    st.write("Please select at least one column to proceed.")  # More specific message
