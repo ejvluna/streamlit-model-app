@@ -15,8 +15,7 @@ df = pd.read_excel(io.BytesIO(r.content))  # Read Excel data from BytesIO object
 
 
 # === Phase 1: Prep ===
-# Load the dataset
-df = pd.read_excel(r"C:\Users\Admin\OneDrive\Massey University\Semester 3\Data Wrangling & Machine Learning\Assignments\A3\TB_Burden_Country_Cleaned.xlsx")
+
 # Check if 'model_results' and 'model_counter' are not in session state (i.e. first run of the app)
 if 'model_results' not in st.session_state:
     # If so, then create an empty dictionary to store results for each model created
