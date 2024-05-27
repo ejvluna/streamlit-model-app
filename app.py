@@ -53,6 +53,18 @@ st.sidebar.write(f"**Target Variable:** {target_variable}")
 feature_options = [col for col in df.columns if col != target_variable]  # Exclude target
 selected_features = st.sidebar.multiselect("Features", feature_options) # No default selection
 
+
+# Section 2: Dataset Display
+st.header("Dataset Preview")
+
+# Display DataFrame using st.dataframe for interactive features
+st.dataframe(df)  # Shows full dataset by default
+
+# Option to show only selected features:
+if selected_features:  # Check if any features are selected
+    st.subheader("Selected Features Preview")
+    st.dataframe(df[selected_features])
+
 # When at least one feature is selected
 if selected_features:
     # Create df_subset DataFrame with selected feature/s and target
