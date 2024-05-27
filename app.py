@@ -44,7 +44,7 @@ feature_model_counter = st.session_state.feature_model_counter
 # Section 1: Feature & Model Configuration
 
 # Display the app title
-st.title('Interactive Model Training')
+st.title('Classifer Model Trainer')
 # Display the interactive widgets for feature and model selection in the sidebar
 st.sidebar.header('Feature and Target Selection')
 # Target selection: Hardcoded to 'Region'
@@ -98,7 +98,7 @@ if selected_features:
                     k = None
 
             # Sidebar
-            st.sidebar.header("Model Creation")  # Optional header in the sidebar
+            st.sidebar.header("Model Training")  # Optional header in the sidebar
 
             # Move the button to the sidebar
             if st.sidebar.button("Create Model"):
@@ -166,7 +166,7 @@ st.markdown("---")
 # Create a container to hold the title
 with st.container():
     # Display the title for the model and feature comparison section
-    st.title("Model Comparison")
+    st.title("Model Evaluation")
 
 # When at least two models are created, display the 'Compare Models' button
 if len(model_results) > 1:
@@ -188,7 +188,7 @@ st.markdown("---")
 # Create a container to hold the title
 with st.container():
     # Display the title for the model and feature comparison section
-    st.title("Feature Comparison")
+    st.title("Feature Evaluation")
     
 # When at least two features are evaluated, display the 'Compare Features' button
 if len(feature_model_results) > 1:
