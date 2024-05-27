@@ -13,8 +13,10 @@ file_url = "https://raw.githubusercontent.com/ejvluna/streamlit-model-app/main/T
 r = requests.get(file_url)
 df = pd.read_excel(io.BytesIO(r.content))  # Read Excel data from BytesIO object
 
-# === Phase 1: Prep ===
 
+# === Phase 1: Prep ===
+# Load the dataset
+df = pd.read_excel(r"C:\Users\Admin\OneDrive\Massey University\Semester 3\Data Wrangling & Machine Learning\Assignments\A3\TB_Burden_Country_Cleaned.xlsx")
 # Check if 'model_results' and 'model_counter' are not in session state (i.e. first run of the app)
 if 'model_results' not in st.session_state:
     # If so, then create an empty dictionary to store results for each model created
@@ -96,8 +98,13 @@ if selected_features:
                     # Set k to None (i.e will need to find optimal k)
                     k = None
 
+            # Sidebar
+            st.sidebar.header("Model Creation")  # Optional header in the sidebar
+
+            # Move the button to the sidebar
+            if st.sidebar.button("Create Model"):
             # "Run Model" Button Logic
-            if st.button("Create Model with Selected Feature/s"):
+            #if st.button("Create Model with Selected Feature/s"):
                 # Option 1: User selects Gaussian Naive Bayes classifier
                 if classifier_name == 'Gaussian Naive Bayes':
                     # Call the train_and_evaluate_gnb function to train and evaluate the model
@@ -110,8 +117,11 @@ if selected_features:
                 st.session_state.model_results = model_results
                 st.session_state.model_counter = model_counter
 
+            # Sidebar: Evaluate Features Button
+            st.sidebar.header("Individual Feature Evaluation")
+            if st.sidebar.button("Evaluate Features"):
             # Evaluate Features Button Logic
-            if st.button("Evaluate Selected Features Individally"):
+            #if st.button("Evaluate Selected Features Individally"):
                 # Check if the selected classifier is Gaussian Naive Bayes or kNN
                 if classifier_name in ["Gaussian Naive Bayes", "kNN"]:  
                     # Make a list of all numerical features in the DataFrame
@@ -153,6 +163,7 @@ else:
 
 # Add spacing for visual separation between sections
 st.markdown("---")  
+
 # Create a container to hold the title
 with st.container():
     # Display the title for the model and feature comparison section
@@ -160,14 +171,18 @@ with st.container():
 
 # When at least two models are created, display the 'Compare Models' button
 if len(model_results) > 1:
+
     st.write("Click to compare the models created so far.")
+
     # Create a container to hold the 'Compare Models' button and logic
     if st.button("Compare Models") and len(model_results) > 1:
         # Call the display_and_compare_models function to compare the models
         display_and_compare_models(model_results)   
+
 else:
     # Display error message if less than two models are run and "Compare Models" button is clicked
     st.write("Create at least 2 models to proceed with model comparison.")
+
 
 # Add spacing for visual separation between sections
 st.markdown("---")  
