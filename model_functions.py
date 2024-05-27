@@ -135,7 +135,7 @@ def train_and_evaluate_knn(df, features, target, evaluation_method, model_result
         # Set the range of k values to test: odd numbers from 3 to 21
         k_values = range(3, 21, 2)
         # Call a helper function to find the best k value
-        best_k, _ = find_best_k_knn(X_scaled, y, k_values, evaluation_method)
+        best_k = find_best_k_knn(X_scaled, y, k_values, evaluation_method)
         # Display the best k value
         st.write(f'Best k (n_neighbors): {best_k}')
     else:
