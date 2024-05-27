@@ -44,7 +44,7 @@ feature_model_counter = st.session_state.feature_model_counter
 # Section 1: Feature & Model Configuration
 
 # Display the app title
-st.title('Classifer Model Trainer')
+st.title('Interactive Classifier Model Tool')
 # Display the interactive widgets for feature and model selection in the sidebar
 st.sidebar.header('Feature and Target Selection')
 # Target selection: Hardcoded to 'Region'
